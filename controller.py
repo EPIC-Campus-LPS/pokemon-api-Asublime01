@@ -8,6 +8,7 @@ class PokemonController:
     def handle_increment(self):
         self.model.increment()
         self.view.set_label(self.model.get_value())
+        self.view.set_label_name(self.model.get_name())
 
     def handle_decrement(self):
         self.model.decrement()
