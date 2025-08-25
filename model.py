@@ -1,4 +1,6 @@
 import requests
+import tkinter as tk
+import os
 
 
     
@@ -24,6 +26,7 @@ class PokemonModel:
 
         name_response1 = name_response.json()
 
+        global pname
         pname = name_response1['forms'][0]['name']
         pname = pname.capitalize()
         picUrl = name_response1['sprites']['front_default']
@@ -35,4 +38,9 @@ class PokemonModel:
             f.write(pokepic_response.content)
 
         return pname
+    
+    def get_image_path(self):
+        image_path = f"{pname}.png"
+        return image_path
+
         
