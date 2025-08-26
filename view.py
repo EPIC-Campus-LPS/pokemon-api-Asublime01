@@ -26,9 +26,15 @@ class PokemonView(tk.Frame):
 
 
     def set_label(self, text):
+        """
+        Sets the number value of the Tkinter label by calling self.label.config()
+        """
         self.label.config(text=str(text))
     
     def set_label_name(self, text):
+        """
+        Sets the name value of the Tkinter label by calling self.label.config()
+        """
         self.label2.config(text=str(text))
 
 
@@ -39,6 +45,11 @@ class PokemonView(tk.Frame):
         self.prev_button.config(command=callback)
     
     def set_image(self, image_path):
+        """
+        1. Calls for and identifies the image path
+        2. Converts the image path into a Tk image object that tk.Label can use
+        3. Sets the image variable in self.image_label
+        """
         # Load and resize the image (optional)
         pil_image = Image.open(image_path)
         tk_image = ImageTk.PhotoImage(pil_image)
