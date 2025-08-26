@@ -17,6 +17,8 @@ class PokemonModel:
 
     def decrement(self):
         self.number -= 1
+        if self.number <= 0:
+            self.number = 1000
 
     def get_value(self):
         return self.number
@@ -42,5 +44,17 @@ class PokemonModel:
     def get_image_path(self):
         image_path = f"{pname}.png"
         return image_path
+    
+    def takeout_the_trash(self):
+        found_files = []
+        for file in os.listdir():
+            if file.endswith('.png'):
+                pathf = file
+                found_files.append(pathf)
+                print(f"file found: {pathf}")
+        
+        for file in found_files:
+            os.remove(str(file))
+
 
         
